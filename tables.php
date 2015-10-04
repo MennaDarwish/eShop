@@ -29,16 +29,41 @@
 	mysql_query("DROP TABLE Cart;");
 	mysql_query(
 		"CREATE TABLE Cart(
-			product_id int FOREIGN KEY REFERENCES Product(id),
-			user_id int FOREIGN KEY REFERENCES User(id),
+			product_id int,
+			user_id int,
+			FOREIGN KEY (product_id) REFERENCES Product(id),
+			FOREIGN KEY (user_id) REFERENCES User(id),
 			PRIMARY KEY (product_id, user_id)
 			);") or die (mysql_error());
 	
-	mysql_query("DROP TABLE Cart;");
+	mysql_query("DROP TABLE History;");
 	mysql_query(
-		"CREATE TABLE Cart(
-			product_id int FOREIGN KEY REFERENCES Product(id),
-			user_id int FOREIGN KEY REFERENCES User(id),
+		"CREATE TABLE History(
+			product_id int,
+			user_id int,
+			FOREIGN KEY (product_id) REFERENCES Product(id),
+			FOREIGN KEY (user_id) REFERENCES User(id),
 			PRIMARY KEY (product_id, user_id)
 		);") or die (mysql_error());
+
+	 mysql_query("INSERT INTO Product (name, price, stock, image) 
+	 		VALUES ('Japanese Kunai', 400, 15, LOAD_FILE('kunai/images.png'))");
+
+	mysql_query("INSERT INTO Product (name, price, stock, image) 
+	 		VALUES ('Bruce Lee's Scar-H', 250, 5, LOAD_FILE('eShop/scar-h.jpeg'))");
+
+		mysql_query("INSERT INTO Product (name, price, stock, image) 
+	 		VALUES ('Sword of At', 250, 5, LOAD_FILE('eShop/katana.jpeg'))");
+	  
+	  mysql_query("INSERT INTO User (email, firstName, lastName, password) 
+	 		VALUES ('starzii@gmail.com', 'Salma', 'Eltarzy', 'salma')");
+
+	  mysql_query("INSERT INTO User (email, firstName, lastName, password) 
+		VALUES ('menna.darwish1@gmail.com', Menna', 'Darwish', 'menna')");
+
+	  mysql_query("INSERT INTO User (email, firstName, lastName, password) 
+		VALUES ('titomoha@gmail.com', 'Tarek', 'Elbeih', 'tarek')");
+
+
+
 ?>
