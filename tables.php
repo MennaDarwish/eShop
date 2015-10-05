@@ -47,10 +47,14 @@
 		);") or die (mysql_error());
 
 	 mysql_query("INSERT INTO Product (name, price, stock, image) 
-	 		VALUES ('Japanese Kunai', 400, 15, LOAD_FILE('kunai/images.png'))");
+	 		VALUES ('Japanese Kunai', 400, 15, LOAD_FILE('images/kunai.png'))");
 
 	mysql_query("INSERT INTO Product (name, price, stock, image) 
-	 		VALUES ('Bruce Lee's Scar-H', 250, 5, LOAD_FILE('eShop/scar-h.jpeg'))");
+	 		VALUES ('Bruce Lee's Scar-H', 250, 5, LOAD_FILE('/Applications/XAMPP/xamppfiles/htdocs/eShop/images/scarh.jpg'))");
+
+	mysql_query("INSERT INTO Product (name, price, stock, image) 
+	 		VALUES ('gun', 400, 15, LOAD_FILE('/Applications/XAMPP/xamppfiles/htdocs/eShop/Katana.png'))");
+
 
 		mysql_query("INSERT INTO Product (name, price, stock, image) 
 	 		VALUES ('Sword of At', 250, 5, LOAD_FILE('eShop/katana.jpeg'))");
