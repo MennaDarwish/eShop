@@ -1,4 +1,4 @@
-<!DOCTYPE html>""
+<!DOCTYPE html>
 <html>
 <head>
 	<title>eShop</title>
@@ -45,7 +45,9 @@
 				{
 					if($row >0){
 
-					echo "<div class='product-block-1'>{$row['name']} {$row['price']} {$row['image']}</div>";
+					echo "<div class='product-block-1'>{$row['name']} {$row['price']} 
+					<img class='img' src='images/{$row['image']}'>
+					</div>";
 				
 
 					} else 
