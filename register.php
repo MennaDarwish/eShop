@@ -8,7 +8,7 @@
 		$fname = mysql_real_escape_string($_POST['fname']);
 		$lname = mysql_real_escape_string($_POST['lname']);
 		$email = mysql_real_escape_string($_POST['email']);
-		$password = mysql_escape_string($_POST['password']);
+		$password = md5(mysql_real_escape_string($_POST['password']));
 
 		if (mysql_query("INSERT INTO User(email, firstName, lastName, password) VALUES ('$email', '$fname', '$lname', '$password')")) {
 			?>
@@ -46,7 +46,7 @@
 			
 			<button class="signup-btn" type="submit" name="btn-signup">Register</button>
 
-			<a href="index.php">Sign in here</a>
+			<a href="login.php">Sign in here</a>
 		</form>
 </body>
 </html>
