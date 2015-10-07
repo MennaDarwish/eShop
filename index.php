@@ -36,7 +36,7 @@
 					$carts = mysql_query($carts_query) or die(mysql_error());
 					$carts_row_num = mysql_num_rows($carts);
 					if ($carts_row_num == 0) {
-						header("Location: index.php");
+						echo 'cart is empty';
 					} else {
 						while ($cart_row = mysql_fetch_assoc($carts)) {
 							if ($cart_row > 0) {
