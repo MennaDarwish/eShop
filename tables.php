@@ -31,6 +31,7 @@
 		"CREATE TABLE Cart(
 			product_id int,
 			user_id int,
+			product_quantity int,
 			FOREIGN KEY (product_id) REFERENCES Product(id),
 			FOREIGN KEY (user_id) REFERENCES User(id),
 			PRIMARY KEY (product_id, user_id)
