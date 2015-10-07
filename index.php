@@ -26,8 +26,37 @@
 	<div class="main-container">
 		<div class="navbar-container">
 			<div class="navbar-content">
-			<div class="navbar-cart"></div>
+			<div id="navbar-cart">
+				<div class="navbar-cart-open" style="display:none;" >
+				<?php
+					if(!isset($_SESSION['user'])) {
+						header("Location: login.php");
+					}
+					else {
+						$id = $_SESSION['user'];
+					}
+					$carts_query = ("SELECT * FROM Cart WHERE user_id='$id'");
+					$carts = mysql_query($carts_query) or die(mysql_error());
+					$carts_row_num = mysql_num_rows($carts);
+					if ($carts_row_num == 0) {
+						header("Location: index.php");
+					} else {
+						while ($cart_row = mysql_fetch_assoc($carts)) {
+							if ($cart_row > 0) {
+								$cart_product_id = $cart_row['product_id'];
+								$cart_products_query = "SELECT * FROM Product WHERE id='$cart_product_id'";
+								$cart_products = mysql_query($cart_products_query) or die(mysql_error());
+								while($cart_product_row = mysql_fetch_assoc($cart_products)){
+									echo "<div class='products-in-cart'>{$cart_product_row['name']}</div>";
+								}
+							}
+						}
+					}
+				?>
 			</div>
+			<div class="navbar-cart-exit"></div>
+			</div>
+
 			<div class="navbar-content">
 			<div class="vertical-line"></div>
 			</div>
@@ -42,6 +71,7 @@
 			</div>
 			</div>
 			<!--div class="navbar-content"><div class="navbar-register">Register</div></div-->
+		</div>
 		</div>
 		<div class="landing-slider">
 			<!--div class="galleria">

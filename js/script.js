@@ -1,21 +1,16 @@
 $(document).ready(function($){
 
-	// Galleria.run('.galleria',{
-	// 	transition: 'fade',
-	// 	 autoplay: true,
-	// 	 imageCrop: true,
-	// 	 width: true,
-	// 	 imagePosition: 'center',
-	// 	 overlayBackground: '#fff',
-	// 	 thumbPosition: 'center',
-	// 	 thumbnails: 'empty',
-	// 	 fullScreen: true,
-	// 	 imageMargin: -10,
-	// });
-
-	// if (Galleria){
-	// 		console.log("ahskjalksjkajs");
-	// }
-
+	$("#navbar-cart").on("click", function() {
+		if ( $('#navbar-cart').hasClass('opened') ){
+			console.log("closed");
+			$(".navbar-cart-open").fadeOut();
+			$("#navbar-cart").removeClass('opened');
+		}
+		else {
+			$('#navbar-cart').addClass('opened');
+			console.log("opened");
+			$(".navbar-cart-open").fadeIn();
+		} 
+	});
 	
 });
