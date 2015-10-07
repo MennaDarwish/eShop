@@ -44,7 +44,8 @@
 				<div class="navbar-cart-open" style="display:none;" >
 				<?php
 					include_once 'dbconnect.php';
-					
+					$id = $userRow['id'];
+
 					$carts_query = ("SELECT * FROM Cart WHERE user_id='$id'");
 					$carts = mysql_query($carts_query) or die(mysql_error());
 					$carts_row_num = mysql_num_rows($carts);
@@ -102,19 +103,19 @@
 					$user = $_SESSION['user'];
 				}
 				if (!empty($_GET['id']) AND !isset($_SESSION['user'])) {
-					header ("Location: login.php");
+					header ("Location: register.php");
 				}	
 				if(!empty(['id']))
 				{
 					$product_id = isset($_GET['id']) ? $_GET['id'] : "";
-					$cart = mysql_query("SELECT * FROM Cart WHERE product_id='$product_id' AND user_id='$user' AND product_quantity='1'");
+					$cart = mysql_query("SELECT * FROM Cart WHERE product_id='$product_id' AND user_id='$user'");
 					$num_of_rows = mysql_num_rows($cart);
 					if($num_of_rows == 0 ) {
 						mysql_query("INSERT INTO Cart(product_id, user_id, product_quantity) VALUES('$product_id', '$user', '1')");
 					}
 					else {
 						$cart_row = mysql_fetch_array($cart);
-						$inc_quantity = $cart_row['product_quantity']+1;
+						$inc_quantity = $cart_row['product_quantity'] + 1;
 						mysql_query("UPDATE Cart SET product_quantity='$inc_quantity' WHERE product_id='$product_id' AND user_id='$user'");
 					}
 				}

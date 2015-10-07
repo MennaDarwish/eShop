@@ -9,6 +9,6 @@
 	if(isset($_GET['logout'])) {
 		session_destroy();
 		unset($_SEESION['user']);
-		header("Location: index.php/loggedOut");
+		header("Location: index.php");
 	}
 ?>
