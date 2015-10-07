@@ -36,7 +36,7 @@
 					$carts = mysql_query($carts_query) or die(mysql_error());
 					$carts_row_num = mysql_num_rows($carts);
 					if ($carts_row_num == 0) {
-						header("Location: index.php");
+						//header("Location: index.php");
 					} else {
 						while ($cart_row = mysql_fetch_assoc($carts)) {
 							if ($cart_row > 0) {
@@ -64,7 +64,7 @@
 			<div class="navbar-content">
 				<div class="navbar-name">
 					<?php
-						echo $userRow['firstName'], $userRow['lastName']
+						echo "<a href='profile.php'>{$userRow['firstName']}{$userRow['lastName']}</a>";
 					?>
 				</div>
 			</div>
