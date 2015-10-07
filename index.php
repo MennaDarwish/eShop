@@ -2,11 +2,10 @@
 	session_start();
 	include_once 'dbconnect.php';
 
-	if(!isset($_SESSION['user'])) {
-		header("Location:login.php");
+	if(isset($_SESSION['user'])) {
+		$res=mysql_query("SELECT * FROM User WHERE id=".$_SESSION['user']);
+		$userRow=mysql_fetch_array($res);
 	}
-	$res=mysql_query("SELECT * FROM User WHERE id=".$_SESSION['user']);
-	$userRow=mysql_fetch_array($res);
 ?>
 <!DOCTYPE html>
 <html>
@@ -16,7 +15,26 @@
 	<script type="text/javascript" src="js/jquery.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="js/fotorama/fotorama.css">
 	<script type="text/javascript" src="js/fotorama/fotorama.js"></script>
-	<script type="text/javascript" src="js/script.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function($){
+		$("#navbar-cart").on("click", function() {
+			if("<?php echo $_SESSION['user']; ?>" == "" ) {
+				window.location.replace("register.php");
+			}
+			if ( $('#navbar-cart').hasClass('opened') ){
+				console.log("closed");
+				$(".navbar-cart-open").fadeOut();
+				$("#navbar-cart").removeClass('opened');
+			}
+			else {
+				$('#navbar-cart').addClass('opened');
+				console.log("opened");
+				$(".navbar-cart-open").fadeIn();
+			} 
+		});
+	
+});
+	</script>
 </head>
 <body>
 	<div class="main-container">
@@ -26,12 +44,7 @@
 				<div class="navbar-cart-open" style="display:none;" >
 				<?php
 					include_once 'dbconnect.php';
-					if(!isset($_SESSION['user'])) {
-						header("Location: login.php");
-					}
-					else {
-						$id = $_SESSION['user'];
-					}
+					
 					$carts_query = ("SELECT * FROM Cart WHERE user_id='$id'");
 					$carts = mysql_query($carts_query) or die(mysql_error());
 					$carts_row_num = mysql_num_rows($carts);
@@ -59,7 +72,7 @@
 			<div class="vertical-line"></div>
 			</div>
 			<div class="navbar-content">
-		
+				<a href="logout.php?logout">LOGOUT</a>
 			</div>
 			<div class="navbar-content">
 				<div class="navbar-name">
