@@ -43,7 +43,7 @@
 			if (mysql_query("INSERT INTO User(email, firstName, lastName, password, avatar) VALUES ('$email', '$fname', '$lname', '$password','$content'
 '$content')")) {
 			?>
-				<script> alert('REGISTERATION SUCCESS'); </script>
+				<script> window.location.replace('login.php'); </script>
 				<?php
 		}
 		else {

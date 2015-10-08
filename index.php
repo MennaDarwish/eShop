@@ -19,8 +19,8 @@
 		$(document).ready(function($){
 
 		$("#navbar-cart").on("click", function() {
-			if ("<?php echo $_SESSION['user'];?>" == ""){
-				window.location.replace('register.php')
+			if("<?php echo $_SESSION['user']; ?>" == "" ) {
+				window.location.replace("login.php");
 			}
 			if ( $('#navbar-cart').hasClass('opened') ){
 				console.log("closed");
@@ -29,7 +29,6 @@
 			}
 			else {
 				$('#navbar-cart').addClass('opened');
-				<?php include_once 'dbconnect.php' ?>
 				$(".navbar-cart-open").fadeIn();
 			} 
 		});
@@ -129,7 +128,7 @@
 					$user = $_SESSION['user'];
 				}
 				if (!empty($_GET['removeid']) AND !empty($_GET['addid']) AND !isset($_SESSION['user'])) {
-					header ("Location: register.php");
+					header ("Location: login.php");
 				}	
 				if(!empty($_GET['addid']))
 				{
@@ -159,17 +158,28 @@
 				while($row = mysql_fetch_assoc($products))
 				{
 					if($row >0){
+					$product_stock = $row['stock'];
+					$add_to_cart = '';
+					if($product_stock > 0) {
+						$add_to_cart = "<div class ='add-to-cart-href'><a href='add_to_cart.php?addid={$row['id']}'>ADD TO CART</a></div>";
+					} else {
+						$add_to_cart = "<div class='out-of-stock-href'>
+											<div class='out-of-stock'>
+												OUT OF STOCK
+											</div>
+										</div>";
+					}
+
 							
 					echo"<div class='product-block-1'> 
-									<div class ='add-to-cart-href'>
-										<a href='index.php?addid={$row['id']}'>ADD TO CART</a>
-									</div>
+										$add_to_cart
+									
 										<div class= 'product-image'> 
 											<img class='img' src='images/{$row['image']}'>
 										</div>
 										<div class='product-info'>
 										<div class='product-name'><span class='title'>Title:</span>  {$row['name']}</div>
-										<div class='product-price'><span class='price'> Price: </span>  {$row['price']} $ </div>
+										<div class='product-price'><span class='price'> Price: </span>  \${$row['price']} </div>
 										<div class='product-stock'><span class= 'available'>Available:</span>  {$row['stock']} left</div>
 										</div>
 										<input type='hidden' name='product_id' value='{$row['id']}'/>
