@@ -4,6 +4,14 @@ body {
 	background-image: url('planes.jpg');
 
 }
+td {
+	font-family: avenir-light;
+	color: #9E9E9E;
+}
+tr {
+	font-size: 25px;
+	color: #BAA394;
+}
 .main-container {
     position: relative;
     width: 100%;

@@ -29,7 +29,6 @@
 			}
 			else {
 				$('#navbar-cart').addClass('opened');
-				<?php include_once 'dbconnect.php' ?>
 				$(".navbar-cart-open").fadeIn();
 			} 
 		});
