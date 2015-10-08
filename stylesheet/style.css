@@ -161,7 +161,6 @@ position: relative;
     border: 1px solid;
     margin-top: 30px;
     margin: 15px;
-    /* background-image: url("images/kunai.png"); */
     background-repeat: no-repeat;
     background-position: 25% 44%;
     top: 22px;
@@ -237,14 +236,14 @@ position: relative;
 	text-align: center;
 	top:9px;
 	color:#000;
-
 }
+
 .add-to-cart-href:hover {
 	background-color: rgba(0,0,0,0.5); 
 }
 
 .product-info {
-	    position: relative;
+	position: relative;
     top: 35px;
     font-size: 20px;
     text-align: left;
@@ -358,4 +357,96 @@ position: relative;
 
 .add-to-cart.out-of-stock:hover {
 	opacity: 0;
+}
+
+.invoice-div {
+	background-image: url('images/planes.jpg');
+	position: relative;
+	width: 50%;
+	height: 500px;
+	top: 130px;
+	left: 400px;
+    font-family: avenir-heavy;
+    background-repeat: no-repeat;
+    border-radius: 18px;
+    color: #000;
+    background-position: 50% 10%;
+    
+}
+.img-invoice {
+	position: relative;
+	height:140px;
+	top: 65px;
+	left: 250px;
+}
+.product-info-invoice {
+	position: relative;
+    top: 125px;
+    font-size: 20px;
+    text-align: center;
+}
+.confirm-add{
+    position: relative;
+    border: 1px solid;
+    width: 200px;
+    top: 200px;
+    left: 280px;
+    border-radius: 7px;
+    height: 40px;
+}
+
+.confirm-add a{
+	position: relative;
+	text-align: center;
+	top: 9px;
+	left: 12px;
+	color: #000;
+	font-size: 17px;
+}
+
+.confirm-add:hover {
+	background-color: rgba(0,0,0,0.5); 
+}
+
+.purchase-done {
+	background-image: url('images/planes.jpg');
+	position: relative;
+	width: 40%;
+	height: 300px;
+	top: 230px;
+	left: 450px;
+    font-family: avenir-heavy;
+    background-repeat: no-repeat;
+    border-radius: 18px;
+    color: #000;
+    background-position: 50% 10%;
+}
+
+.purchase-done-text {
+	position: relative;
+    top: 95px;
+    font-size: 18px;
+    text-align: center;
+}
+
+.confirm-done{
+    position: relative;
+    border: 1px solid;
+    width: 200px;
+    top: 80px;
+    left: 210px;
+    border-radius: 7px;
+    height: 40px;
+}
+
+.confirm-done a{
+	position: relative;
+	text-align: center;
+	top: 9px;
+	color: #000;
+	font-size: 17px;
+}
+
+.confirm-done:hover {
+	background-color: rgba(0,0,0,0.5); 
 }

@@ -162,7 +162,7 @@
 					$product_stock = $row['stock'];
 					$add_to_cart = '';
 					if($product_stock > 0) {
-						$add_to_cart = "<div class ='add-to-cart-href'><a href='index.php?addid={$row['id']}'>ADD TO CART</a></div>";
+						$add_to_cart = "<div class ='add-to-cart-href'><a href='add_to_cart.php?addid={$row['id']}'>ADD TO CART</a></div>";
 					} else {
 						$add_to_cart = "<div class='out-of-stock-href'>
 											<div class='out-of-stock'>
@@ -180,7 +180,7 @@
 										</div>
 										<div class='product-info'>
 										<div class='product-name'><span class='title'>Title:</span>  {$row['name']}</div>
-										<div class='product-price'><span class='price'> Price: </span>  {$row['price']} $ </div>
+										<div class='product-price'><span class='price'> Price: </span>  \${$row['price']} </div>
 										<div class='product-stock'><span class= 'available'>Available:</span>  {$row['stock']} left</div>
 										</div>
 										<input type='hidden' name='product_id' value='{$row['id']}'/>
