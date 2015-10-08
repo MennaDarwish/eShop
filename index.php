@@ -52,36 +52,43 @@
 					if ($carts_row_num == 0) {
 						echo 'cart is empty';
 					} else {
-						while ($cart_row = mysql_fetch_assoc($carts)) {
-							if ($cart_row > 0) {
-
-								$sum_prices = 0;
-								$cart_product_id = $cart_row['product_id'];
-								$cart_products_query = "SELECT * FROM Product WHERE id='$cart_product_id'";
-								$cart_products = mysql_query($cart_products_query) or die(mysql_error());
-								echo "<table style='width:100%' border='1'>
+						$overall_sum = 0;echo 
+						"<table style='width:100%' border='1'>
 											  <tr>
 											    <th>Product Name</th>
 											    <th>Price</th>		
 											    <th>Quantity</th>
 											    <th>Cancel</th>
+											    <th>Total</th>
 											  </tr> ";
+						while ($cart_row = mysql_fetch_assoc($carts)) {
+							if ($cart_row > 0) {
+								$sum_prices = 0;
+								$cart_product_id = $cart_row['product_id'];
+								$cart_products_query = "SELECT * FROM Product WHERE id='$cart_product_id'";
+								$cart_products = mysql_query($cart_products_query) or die(mysql_error());
+								
 								while($cart_product_row = mysql_fetch_assoc($cart_products)){
 									$sum_prices = $sum_prices + $cart_row['product_quantity'] * $cart_product_row['price'];
 									echo "	<tr style='text-align: center'>
 												<td>{$cart_product_row['name']}</td>
-												<td>{$cart_product_row['price']}</td>
+												<td>\${$cart_product_row['price']}</td>
 												<td>{$cart_row['product_quantity']}</td>
 												<td> <a href = 'index.php?removeid={$cart_product_id}'> remove </a> </td> 
-											</tr>
 											";
 								}
-								echo "</table>";	
-
-								echo "<br>";
-								echo "Total price: " . $sum_prices;
+								echo "<th> \$$sum_prices </th></tr>";
+								
+								$overall_sum = $overall_sum + $sum_prices;
 							}
 						}
+						echo "</table>";
+						echo "<br>";
+						echo "<br>";
+						echo "OverAll Price: \$$overall_sum"; 
+						echo "<br>";
+						echo "<br>";
+						echo "<a href = 'checkout.php'> Checkout </a>";
 					}
 				?>
 			</div>
