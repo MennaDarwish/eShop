@@ -296,3 +296,45 @@ position: relative;
 	font-size: 50px;
 	text-align: center;
 }
+td {
+	font-family: avenir-light;
+	color: #9E9E9E;
+}
+tr {
+	font-size: 25px;
+	color: #BAA394;
+}
+/*7B1113 */
+.remove-anchor {
+	text-decoration: none;
+	color:  #9E9E9E;
+}
+
+.cart-table {
+	position: relative;
+	width: 100%;
+	border: 1px ;
+	top:16px;
+}
+
+.total-price {
+position: relative;
+    right: 20px;
+    color: #BAA394;
+    float: right;
+}
+.checkout-anchor {
+	  position: relative;
+    float: right;
+    text-decoration: none;
+    color: #9E9E9E;
+    bottom: 14px;
+    right: 36px;
+    border: 2px solid;
+    width: 114px;
+    text-align: center;
+}
+
+.checkout-anchor:hover {
+	color: rgba(255,255,255,0.2);
+}

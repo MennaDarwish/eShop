@@ -54,7 +54,7 @@
 						echo 'Your Cart IS Empty';
 					} else {
 						$overall_sum = 0;echo 
-						"<table style='width:100%' border='1'>
+						"<table class='cart-table' style='width:100%' border='1'>
 											  <tr>
 											    <th>Product Name</th>
 											    <th>Price</th>		
@@ -75,7 +75,7 @@
 												<td>{$cart_product_row['name']}</td>
 												<td>\${$cart_product_row['price']}</td>
 												<td>{$cart_row['product_quantity']}</td>
-												<td> <a href = 'index.php?removeid={$cart_product_id}'> remove </a> </td> 
+												<td> <a class='remove-anchor' href = 'index.php?removeid={$cart_product_id}'> X </a> </td> 
 											";
 								}
 								echo "<th> \$$sum_prices </th></tr>";
@@ -86,10 +86,10 @@
 						echo "</table>";
 						echo "<br>";
 						echo "<br>";
-						echo "OverAll Price: \$$overall_sum"; 
+						echo "<div class='total-price'>Total Price: \$$overall_sum</div>"; 
 						echo "<br>";
 						echo "<br>";
-						echo "<a href = 'checkout.php'> Checkout </a>";
+						echo "<a class='checkout-anchor'href = 'checkout.php'> Checkout </a>";
 					}
 				?>
 			</div>
