@@ -1,0 +1,180 @@
+body {
+	overflow-x: hidden; 
+	background-color: #1A2125;
+
+}
+.main-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    left: 214px;
+    top: 90px;
+}
+
+.register-info-container {
+	position: relative;
+	width: 400px;
+	height: 350px;
+	background-color: #1A2125;
+	background-image: url('planes.jpg');
+	background-position: 29% 40%;
+
+}
+
+.form {
+	position: relative;
+	padding-left: 1px;
+}
+.register-fname-label {
+	position: relative;
+	font-family: avenir-light;
+	font-size: 20px;
+	width: 150px;
+	color: #1A2125;
+
+}
+
+#register-fname {
+	position: relative;
+	width: 200px;
+	height: 20px;
+	left: 10px;
+
+}
+
+.register-lname-label {
+	position: relative;
+	font-family: avenir-light;
+	font-size: 20px;
+	width: 150px;
+	color: #1A2125;
+}
+
+#register-lname {
+	position: relative;
+	width: 200px;
+	height: 20px;
+	left: 10px;
+
+
+}
+
+.register-email-label {
+	position: relative;
+	font-family: avenir-light;
+	font-size: 20px;
+	width: 150px;
+	color: #1A2125;
+}
+
+#register-email {
+	position: relative;
+	width: 200px;
+	height: 20px;
+	left: 57px;
+}
+
+.register-pass-label {
+	position: relative;
+	font-family: avenir-light;
+	font-size: 20px;
+	width: 150px;
+	color: #1A2125;
+}
+
+#register-pass {
+	position: relative;
+	width: 200px;
+	height: 20px;
+	left: 20px;
+}
+
+.signup-btn {
+    position: relative;
+    text-align: center;
+    height: 30px;
+    width: 130px;
+    border-radius: 10px;
+    left: 70px;
+    top: 6px;
+    background-color: #fff;
+
+}
+.signup-btn:hover {
+	background-color: rgba(0,0,0,0.5);
+}
+
+.container {
+	position: relative;
+	margin:38px;
+	top: 55px;
+
+}
+.signin-anchor {
+    position: relative;
+    width: 400px;
+    top: 48px;
+    text-decoration: none;
+    right: 40px;
+    color: #1A2125;
+}
+
+.horizontal-line {
+    position: absolute;
+    height: 1px;
+    width: 100px;
+    background-color: #1A2125;
+    bottom: -42px;
+    left: 79px;
+}
+.fname {
+	position: relative;
+	margin-bottom: 15px;
+}
+
+.lname {
+	position: relative;
+	margin-bottom: 15px;
+}
+
+.email {
+	position: relative;
+	margin-bottom: 15px;
+}
+
+.pass {
+	position: relative;
+	margin-bottom: 15px;
+}
+.navbar-container {
+	position: fixed;
+	width: 100%;
+	height: 60px;
+	/*background-color: #4D382C;*/
+	background-image: url("images/planes.jpg");
+	color: #000;
+	background-position: 30% 30%;
+	background-size: cover;
+	z-index: 6;
+	top:0px;
+	border-bottom: 1px #9E9E9E solid;
+	left:0px;
+}
+.home {
+	position: absolute;
+	top: 20px;
+	font-family: avenir-heavy;
+}
+
+.home a {
+	color: #9E9E9E;
+	text-decoration: none;
+	position: absolute;
+	width: 100px;
+	height:100px;
+	left: 60px;
+}
+
+.home a:hover {
+	color: rgba(0,0,0,0.5);
+}

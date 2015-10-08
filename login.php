@@ -38,18 +38,34 @@
 <!DOCTYPE html>
 <html>
 <head>
+		<link rel="stylesheet" type="text/css" href="stylesheet/login.css">
 	<title></title>
 </head>
 <body>
+	<div class="main-container">
+	<div class="navbar-container">
+			<div class="register">
+				<a href="register.php"> REGISTER </a>
+			</div>			
+				</div>
+	<div class="login-info-container">
+	<div class= "container">
 	<form action="" method='post'>
+		<div class="email-block">
 		<label class="email-label"> Email:</label>
 		<input id='email' name='email' placeholder="Email" type='text'>
-		
+		</div>
+		<div class="pass-block">
 		<label class="password-label"> Password:</label>
 		<input id='password' name='upass' placeholder="**********" type="password" required>
-		
+		</div>
 		<button class="login-btn" name='btn-login' type='submit'>LOGIN</button>
-		<a href="register.php"> Register Here</a>
+		<a class="register-anchor"href="register.php"> Register Here</a>
+			<div class="horizontal-line"></div>
+
 	</form>
+	</div>
+	</div>
+	</div>
 </body>
 </html>
