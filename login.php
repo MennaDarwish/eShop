@@ -15,6 +15,7 @@
 		}
 		$rows = mysql_fetch_array($res);
 		echo md5($password);
+		echo "<br>";
 		echo $rows['password'];
 		if ($rows['password']==md5($password)) 
 		{

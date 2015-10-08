@@ -23,7 +23,8 @@
 			email varchar(40),
 			firstName varchar(40),
 			lastName varchar(40),
-			password varchar(40)
+			password varchar(40),
+			avatar MEDIUMBLOB
 			);") or die (mysql_error());
 
 	mysql_query("DROP TABLE Cart;");
@@ -59,13 +60,4 @@
 
 	mysql_query("INSERT INTO Product (name, price, stock, image) 
 		VALUES ('Sword of At', 250, 5, 'Katana.png')");
-
-	mysql_query("INSERT INTO User (email, firstName, lastName, password) 
-		VALUES ('starzii@gmail.com', 'Salma', 'Eltarzy', 'salma')");
-
-	mysql_query("INSERT INTO User (email, firstName, lastName, password) 
-		VALUES ('menna.darwish1@gmail.com', Menna', 'Darwish', 'menna')");
-
-	mysql_query("INSERT INTO User (email, firstName, lastName, password) 
-		VALUES ('titomoha@gmail.com', 'Tarek', 'Elbeih', 'tarek')");
 ?>
