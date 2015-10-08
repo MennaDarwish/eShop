@@ -1,9 +1,9 @@
 <?php
 	session_start();
-	if(isset($_SESSION['user']) != "") {
-		header("Location:index.php");
-	}
+	
 	include_once 'dbconnect.php';
+	$res=mysql_query("SELECT * FROM User WHERE id=".$_SESSION['user']);
+	$userRow=mysql_fetch_array($res);
 
 	// if(isset($_POST['upload']) && $_FILES['userfile']['size'] > 0)
 	// 	{
@@ -21,11 +21,13 @@
 	// 		}
 	// }
 	 
-	if(isset($_POST['btn-signup']) && $_FILES['userfile']['size'] > 0){
+	if(isset($_POST['btn-signup'])){
 		$fname = mysql_real_escape_string($_POST['fname']);
 		$lname = mysql_real_escape_string($_POST['lname']);
 		$email = mysql_real_escape_string($_POST['email']);
 		$password = md5(mysql_real_escape_string($_POST['password']));
+		$content = "";
+		if($_FILES['userfile']['size'] > 0) {
 				$fileName = $_FILES['userfile']['name'];
 				$tmpName  = $_FILES['userfile']['tmp_name'];
 				$fileSize = $_FILES['userfile']['size'];
@@ -38,19 +40,16 @@
 				{
 				    $fileName = addslashes($fileName);
 				}
-		
 
-			if (mysql_query("INSERT INTO User(email, firstName, lastName, password, avatar) VALUES ('$email', '$fname', '$lname', '$password','$content'
-'$content')")) {
-			?>
-				<script> alert('REGISTERATION SUCCESS'); </script>
-				<?php
 		}
-		else {
-			?>
-			<script> alert('error while Registeration'); </script>
-			<?php
-		}
+
+$user_id = $userRow['id'];
+$update_query = ("UPDATE User SET email = '$email', firstName = '$fname',
+		 lastName = '$lname', 
+		 password = '$password', 
+		 avatar = '$content'
+		  WHERE id = '$user_id' ");
+			mysql_query($update_query) or die(mysql_error());
 		
 	
 }
@@ -83,15 +82,15 @@
 		<form method='post' enctype="multipart/form-data">
 				<div class= "fname">
 			<label class="register-fname-label">First Name:</label>
-			<input id="register-fname" placeholder="First Name" type="text" name="fname">
+			<input id="register-fname" value="<?php echo $userRow['firstName']?>" type="text" name="fname">
 			</div>
 			<div class='lname'>
 			<label class="register-lname-label">Last Name:</label>
-			<input id="register-lname" placeholder="Last Name" type="text" name="lname">
+			<input id="register-lname" value='<?php echo $userRow['lastName']?>' type="text" name="lname">
 			</div>
 			<div class='email'>
 			<label class="register-email-label">Email:</label>
-			<input id="register-email" placeholder="Email" type="text" name="email">
+			<input id="register-email" value='<?php echo $userRow['email']?>' type="text" name="email">
 			</div>
 			<div class="pass">
 			<label class="register-pass-label">Password:</label>
@@ -112,9 +111,8 @@
 				<!-- </form> -->
 							
 
-			<button class="signup-btn" type="submit" name="btn-signup">Register</button>
+			<button class="signup-btn" type="submit" name="btn-signup">Update</button>
 
-			<a class="signin-anchor"href="login.php">Sign in here</a>
 			<div class="horizontal-line"></div>
 		</form>
 		</div>

@@ -23,7 +23,8 @@
 			email varchar(40),
 			firstName varchar(40),
 			lastName varchar(40),
-			password varchar(40)
+			password varchar(40),
+			avatar MEDIUMBLOB
 			);") or die (mysql_error());
 
 	mysql_query("DROP TABLE Cart;");

@@ -29,8 +29,7 @@
 	</div>
 <?php
 	echo "<div class='profile-container'>
-				<div class='info'>
-				<div class= 'firstn'>
+				<div class='info'>				<div class= 'firstn'>
 				<div class='fname-title'>First Name:</div>
 				<div class='fname'>{$userRow['firstName']}</div>
 				</div> 
@@ -43,7 +42,10 @@
 				</div>
 				</div>
 				<div class='history-purchase'></div>
+				<a href='editprofile.php'> EDIT PROFILE </a>
 				 </div>";
+				 echo '<img src="data:image/jpeg;base64,'.base64_encode($userRow['avatar']).'" alt="photo"><br>';
+
 
 ?>
 <script> 
