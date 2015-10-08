@@ -11,13 +11,36 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<link rel="stylesheet" type="text/css" href="stylesheet/profile.css">
 	<title></title>
 </head>
 <body>
+	<div class="main-container">
+	<div class="navbar-container">
+			<div class="register">
+				<a href="index.php"> HOME </a>
+
+			</div>	
+			<div class="history">
+				<a id="history" href="history"> History of Purchases </a>	
+			</div>	
+				</div>
+	</div>
 <?php
-	echo $userRow['firstName']; 
-	echo $userRow['lastName'];
-	echo $userRow['email'];
+	echo "<div class='profile-container'>
+				<div class= 'firstn'>
+				<div class='fname-title'>First Name:</div>
+				<div class='fname'>{$userRow['firstName']}</div>
+				</div> 
+				<div class='lastn'>
+				<div class='lname-title'>Last Name:</div>
+					<div class ='lname'>{$userRow['lastName']}</div>
+				</div>
+				<div class='mail'>
+				<div class='email-title'>Email:</div><div class='user-email'>{$userRow['email']}</div>
+				</div>
+				 </div>";
+
 ?>
 
 </body>
