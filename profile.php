@@ -29,8 +29,7 @@
 	</div>
 <?php
 	echo "<div class='profile-container'>
-				<div class='info'>
-				<div class= 'firstn'>
+				<div class='info'>				<div class= 'firstn'>
 				<div class='fname-title'>First Name:</div>
 				<div class='fname'>{$userRow['firstName']}</div>
 				</div> 
@@ -42,6 +41,8 @@
 				<div class='email-title'>Email:</div><div class='user-email'>{$userRow['email']}</div>
 				</div>
 				</div>
+					<a href='editprofile.php'> EDIT PROFILE </a>
+				 </div>
 				<div class='history-purchase'>
 					<table class='cart-table' style='width:100%' border='1'>
 					  <tr>
@@ -66,6 +67,11 @@
 				}
 
 	echo "</table></div></div>";
+
+
+				 //echo '<img src="data:image/jpeg;base64,'.base64_encode($userRow['avatar']).'" alt='photo'><br>';
+				 echo '<img src="data:image/jpeg;base64,'.base64_encode($userRow['avatar']).'" alt="photo"><br>';
+
 
 ?>
 <script> 
