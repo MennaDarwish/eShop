@@ -23,10 +23,6 @@ body {
     background-position: 29% 40%;
 
 }
-
-
-
-
 .register-anchor {
 	 position: relative;
     width: 400px;
@@ -87,10 +83,10 @@ position: absolute;
 
 .profile-container {
 	position: relative;
-	width : 500px;
+	width : 50%;
 	height: 500px;
 	background-color: #fff;
-	top: 47px;
+	top: 36px;
 	left:-8px;
 	background-image: url('planes.jpg')
 }
@@ -181,4 +177,20 @@ position: absolute;
   font-family: avenir-light;
   bottom: 24px;
   left: 81px;
+}
+
+.history-purchase {
+	position: relative;
+	display: none;
+    height: 500px;
+    width: 700px;
+    float: right;
+    background-color: #1A2125;
+    opacity: 0.9;
+    top: -131px;
+    left: 103%;
+}
+.info {
+	position: relative;
+	top:10px;
 }
