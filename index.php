@@ -50,7 +50,10 @@
 					$carts = mysql_query($carts_query) or die(mysql_error());
 					$carts_row_num = mysql_num_rows($carts);
 					if ($carts_row_num == 0) {
+
 						echo 'cart is empty';
+
+						//header("Location: index.php");
 					} else {
 						$overall_sum = 0;echo 
 						"<table style='width:100%' border='1'>
@@ -104,7 +107,7 @@
 			<div class="navbar-content">
 				<div class="navbar-name">
 					<?php
-						echo $userRow['firstName'], $userRow['lastName']
+						echo "<a href='profile.php'>{$userRow['firstName']}{$userRow['lastName']}</a>";
 					?>
 				</div>
 			</div>
