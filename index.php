@@ -159,11 +159,22 @@
 				while($row = mysql_fetch_assoc($products))
 				{
 					if($row >0){
+					$product_stock = $row['stock'];
+					$add_to_cart = '';
+					if($product_stock > 0) {
+						$add_to_cart = "<div class ='add-to-cart-href'><a href='index.php?addid={$row['id']}'>ADD TO CART</a></div>";
+					} else {
+						$add_to_cart = "<div class='out-of-stock-href'>
+											<div class='out-of-stock'>
+												OUT OF STOCK
+											</div>
+										</div>";
+					}
+
 							
 					echo"<div class='product-block-1'> 
-									<div class ='add-to-cart-href'>
-										<a href='index.php?addid={$row['id']}'>ADD TO CART</a>
-									</div>
+										$add_to_cart
+									
 										<div class= 'product-image'> 
 											<img class='img' src='images/{$row['image']}'>
 										</div>

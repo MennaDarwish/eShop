@@ -339,3 +339,23 @@ position: relative;
 .checkout-anchor:hover {
 	color: rgba(255,255,255,0.2);
 }
+
+.out-of-stock {
+	position: relative;
+	text-align: center;
+	top: 10px;
+}
+
+.out-of-stock-href {
+    position: relative;
+    border: 1px solid;
+    width: 164px;
+    top: 300px;
+    left: 117px;
+    border-radius: 7px;
+    height: 40px;
+}
+
+.add-to-cart.out-of-stock:hover {
+	opacity: 0;
+}
