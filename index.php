@@ -17,9 +17,10 @@
 	<script type="text/javascript" src="js/fotorama/fotorama.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function($){
+
 		$("#navbar-cart").on("click", function() {
-			if("<?php echo $_SESSION['user']; ?>" == "" ) {
-				window.location.replace("register.php");
+			if ("<?php echo $_SESSION['user'];?>" == ""){
+				window.location.replace('register.php')
 			}
 			if ( $('#navbar-cart').hasClass('opened') ){
 				console.log("closed");
@@ -50,7 +51,7 @@
 					$carts = mysql_query($carts_query) or die(mysql_error());
 					$carts_row_num = mysql_num_rows($carts);
 					if ($carts_row_num == 0) {
-						echo 'cart is empty';
+						echo 'Your Cart IS Empty';
 					} else {
 						$overall_sum = 0;echo 
 						"<table style='width:100%' border='1'>
@@ -98,13 +99,15 @@
 			<div class="navbar-content">
 			<div class="vertical-line"></div>
 			</div>
-			<div class="navbar-content">
-				<a href="logout.php?logout">LOGOUT</a>
+			<div class="logout">
+				<a href="logout.php?logout">Sign Out</a>
 			</div>
 			<div class="navbar-content">
 				<div class="navbar-name">
 					<?php
-						echo $userRow['firstName'], $userRow['lastName']
+						echo"<div class= 'username'>
+							<a href='profile.php'> {$userRow['firstName']}{$userRow['lastName']}</a>
+								</div>";
 					?>
 				</div>
 			</div>
@@ -112,9 +115,10 @@
 		</div>
 		</div>
 		<div class="landing-slider">
+			<div class="galleria"></div>
 		</div>
 		<div class="product-container">
-			<div class="product-title">OUR WEAPONS</div>
+			<div class="product-title">Products</div>
 		
 			<?php
 
@@ -155,16 +159,20 @@
 					if($row >0){
 							
 					echo"<div class='product-block-1'> 
-									<a href='index.php?addid={$row['id']}'>ADD TO CART</a>
-									<div class='product-name'>{$row['name']}
-										<div class='product-price'> {$row['price']} </div>
+									<div class ='add-to-cart-href'>
+										<a href='index.php?addid={$row['id']}'>ADD TO CART</a>
+									</div>
 										<div class= 'product-image'> 
 											<img class='img' src='images/{$row['image']}'>
 										</div>
-										<div class='product-stock'>{$row['stock']}</div>
+										<div class='product-info'>
+										<div class='product-name'><span class='title'>Title:</span>  {$row['name']}</div>
+										<div class='product-price'><span class='price'> Price: </span>  {$row['price']} $ </div>
+										<div class='product-stock'><span class= 'available'>Available:</span>  {$row['stock']} left</div>
+										</div>
 										<input type='hidden' name='product_id' value='{$row['id']}'/>
-										<input type='submit' value='ADD TO CART' class='add-to-cart-btn'/>
-								</div>
+
+								
 								</div>";
 				}
 					 else 
