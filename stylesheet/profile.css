@@ -2,6 +2,7 @@ body {
 	overflow-x: hidden; 
 	background-color: #1A2125;
 	background-image: url('planes.jpg');
+	overflow-y: hidden;
 
 }
 td {
@@ -108,11 +109,10 @@ position: absolute;
 	float: right;
 }
 
-.history a{
+.history{
 		color: #9E9E9E;
     text-decoration: none;
     position: relative;
-    width: 200px;
     height: 100px;
     left: -42px;
     top: 16px;
@@ -121,7 +121,7 @@ position: absolute;
     font-size: 20px;
 }
 
-.history a:hover {
+.history:hover {
 	color: rgba(0,0,0,0.5);
 }
 
@@ -196,9 +196,24 @@ position: absolute;
     background-color: #1A2125;
     opacity: 0.9;
     top: -131px;
-    left: 103%;
+    left: 102%;
 }
 .info {
 	position: relative;
 	top:10px;
+}
+.cart-table {
+	position: relative;
+	width: 100%;
+	border: 1px ;
+	top:16px;
+}
+
+td {
+	font-family: avenir-light;
+	color: #9E9E9E;
+}
+tr {
+	font-size: 25px;
+	color: #BAA394;
 }
