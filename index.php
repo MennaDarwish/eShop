@@ -19,8 +19,8 @@
 		$(document).ready(function($){
 
 		$("#navbar-cart").on("click", function() {
-			if ("<?php echo $_SESSION['user'];?>" == ""){
-				window.location.replace('register.php')
+			if("<?php echo $_SESSION['user']; ?>" == "" ) {
+				window.location.replace("login.php");
 			}
 			if ( $('#navbar-cart').hasClass('opened') ){
 				console.log("closed");
@@ -129,7 +129,7 @@
 					$user = $_SESSION['user'];
 				}
 				if (!empty($_GET['removeid']) AND !empty($_GET['addid']) AND !isset($_SESSION['user'])) {
-					header ("Location: register.php");
+					header ("Location: login.php");
 				}	
 				if(!empty($_GET['addid']))
 				{
