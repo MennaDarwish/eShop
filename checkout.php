@@ -52,6 +52,21 @@
 			mysql_query($remove_query) or die(mysql_error());	
 		}
 	}
-
-	header("Location: index.php");
 ?>
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Purchase Complete</title>
+	<link rel="stylesheet" type="text/css" href="stylesheet/style.css">
+</head>
+<body>
+	<div class="purchase-done">
+			<div class='purchase-done-text'>
+				<div class='product-name'><span class='title'>Purchase Confirmed</span></div>
+				
+				<div class ='confirm-done'><a href='index.php'>Back to Home Page</a></div>
+			</div>
+		</div>
+</body>
+</html>
